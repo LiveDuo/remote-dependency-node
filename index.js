@@ -7,7 +7,13 @@ const request = (url) => new Promise((r) => {
 })
 
 ;(async () => {
-    const url = 'https://raw.githubusercontent.com/LiveDuo/remote-dependency-node/master/dependency.js'
+    const url = 'https://raw.githubusercontent.com/LiveDuo/remote-dependency-node/master/bencode.js'
     const response = await request(url)
-    Function(response)()
+    const {encode, decode} = Function(response)()
+
+    const data = { string: 'Hello World', integer: 12345 }
+    const encoded = encode(data).toString('utf8')
+    const decoded = decode(encoded)
+    console.log('encoded', encoded)
+    console.log('decoded', decoded)
 })()
