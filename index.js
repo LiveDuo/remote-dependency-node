@@ -7,7 +7,7 @@ const request = (url) => new Promise((r) => {
 })
 
 ;(async () => {
-    const url = 'https://gist.githubusercontent.com/LiveDuo/1309aadd70f068b503cfd78c5b5e3a28/raw/7c87b4deb9a29686e884839eaef218851e5ba5a0/example.js'
+    const url = 'https://raw.githubusercontent.com/LiveDuo/remote-dependency-node/master/dependency.js'
     const response = await request(url)
     Function(response)()
 })()
